@@ -8,9 +8,9 @@ import React from 'react';
 // });
 
 const Form = (props) => (
-    <form onSubmit={props.getForecast}>
-        <input className="weather_search" type="text" name="city" placeholder="Search" />
-        <button className="weather_search_button">Get Weather</button>
+    <form class="form" onSubmit={props.getForecast}>
+        <input className="weather__search-input" type="text" name="city" placeholder="Search" />
+        <button className="weather__search-button">Get Weather</button>
         {/* <button onClick={() => this.handleClick()}>
             Get Weather
         </button> */}

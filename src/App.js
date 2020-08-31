@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import './Weather.css';
 import './Forecast.css';
+import './Form.css';
 
 import Titles from "./components/Titles";
 import Form from "./components/Form";
