@@ -8,6 +8,8 @@ import Titles from "./components/Titles";
 import Form from "./components/Form";
 import Weather from "./components/Weather";
 import Forecast from "./components/Forecast";
+import Error from "./components/Error";
+import moment from 'moment';
 
 // import * as reactRouter from "react-router";
 
@@ -26,7 +28,6 @@ class App extends React.Component {
     forecast_date: undefined,
     error: undefined
   }
-
 
 
 componentDidMount() {
@@ -82,6 +83,7 @@ componentDidMount() {
       })
 }
 
+
   getForecast = async (e) => {
     e.preventDefault();
     const forecast_city = e.target.elements.city.value;
@@ -98,12 +100,12 @@ componentDidMount() {
         forecast4: Math.round(forecast_data.list[39].main.temp),
         
         
-        forecast_date: forecast_data.list[7].dt_txt,
-        forecast_date1: forecast_data.list[15].dt_txt,
-        forecast_date2: forecast_data.list[23].dt_txt,
-        forecast_date3: forecast_data.list[31].dt_txt,
-        forecast_date4: forecast_data.list[39].dt_txt,
-        error: ""
+        forecast_date: moment(forecast_data.list[7].dt_txt).format('LL'),
+        forecast_date1: moment(forecast_data.list[15].dt_txt).format('LL'),
+        forecast_date2: moment(forecast_data.list[23].dt_txt).format('LL'),
+        forecast_date3: moment(forecast_data.list[31].dt_txt).format('LL'),
+        forecast_date4: moment(forecast_data.list[39].dt_txt).format('LL'),
+        error: " "
       })
     } else {
       this.setState({
@@ -115,14 +117,14 @@ componentDidMount() {
   }
 }
 
+
+
   
   render() { 
     return (
       
         <div className="wrapper"> 
           <Titles />
-          
-          {/* <Form getWeather={this.getWeather}/> */}
 
           <Form getForecast={this.getForecast}/>   
 
@@ -163,7 +165,8 @@ componentDidMount() {
             error={this.state.error}
 
           />
-          
+        
+          <Error>
           <Forecast 
 
             forecast_city={this.state.forecast_city}
@@ -183,8 +186,11 @@ componentDidMount() {
 
             error={this.state.error}
           />
+          </Error>
+
+          
+          
         </div>
-    
     );
   }
 }
