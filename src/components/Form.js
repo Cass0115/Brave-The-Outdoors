@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-// var toggleWeather = document.querySelector('.weather_search');
+// var toggleWeather = document.querySelector('.weather__search');
 // var removeWeather = document.querySelector('.weather__wrapper weather');
 // toggleWeather.addEventListener('click', function(e){
 //     removeWeather.classList.add('remove');
@@ -10,10 +10,7 @@ import React from 'react';
 const Form = (props) => (
     <form class="form" onSubmit={props.getForecast}>
         <input className="weather__search-input" type="text" name="city" placeholder="Search" />
-        <button className="weather__search-button">Get Weather</button>
-        {/* <button onClick={() => this.handleClick()}>
-            Get Weather
-        </button> */}
+        <button className="weather__search-button">Submiit</button>
     </form>
  );
 
