@@ -128,7 +128,6 @@ componentDidMount() {
 
           <Form getForecast={this.getForecast}/>   
 
-
           <Weather
             
             city={this.state.city}
